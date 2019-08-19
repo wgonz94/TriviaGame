@@ -25,6 +25,12 @@ h1 {
     margin-bottom: 15px;
     
 }
+.sideTwomaster{
+    float: right;
+}
+.sideTwo{
+    margin-bottom: 15px;
+}
 img {
     border: 3px solid #ed1d24;
     border-radius: 12px;
