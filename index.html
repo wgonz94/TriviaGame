@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,79 +9,107 @@
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Permanent+Marker&display=swap" rel="stylesheet">
     <title>Marvel Superhero Trivia Game</title>
 </head>
-<body>
+
+<body>  
+    
+    <div class="sideOne">
+        <img src="assets/images/imageOne.jpg" alt="Iron Man" width="200" height="250">
+    </div>
+    <div class="sideOne">
+        <img src="assets/images/imageTwo.jpg" alt="DareDevil"width="200" height="250">
+    </div>
+    <div class="sideOne">
+        <img src="assets/images/imageThree.jpg" alt="Deadpool"width="200" height="250">
+    </div>
+    <div class="sideOne">
+        <img src="assets/images/imageFour.jpg" alt="Spiderman"width="200" height="250">
+    </div>
+    <div class="sideOne">
+        <img src="assets/images/imageFive.jpg" alt="Human-torch"width="200" height="250">
+    </div>
     <div class="trivOverlay">
         <h1>Marvel Superhero Trivia!</h1>
 
         <h3>Time Remaining:<span id="timeLeft"></span></h3>
 
         <p>What is Spiderman's true idenity?</p>
-             <form>
-                <input type="radio" name="choice" value="wrong">Eddie Brock<br>
-                <input type="radio" name="choice" value="wrong">Gwen Stacey<br>
-                <input type="radio" name="choice" value="correct">Peter Parker<br>
-                <input type="radio" name="choice" value="wrong">Steve Rogers
-             </form>
-             <br>
+        <form>
+            <input type="radio" name="choice" value="wrong">Eddie Brock<br>
+            <input type="radio" name="choice" value="wrong">Gwen Stacey<br>
+            <input type="radio" name="choice" value="correct">Peter Parker<br>
+            <input type="radio" name="choice" value="wrong">Steve Rogers
+        </form>
+        <br>
         <p>Who is NOT a Superhero?</p>
         <form>
-                <input type="radio" name="choice" value="correct">Iceman<br>
-                <input type="radio" name="choice" value="wrong">The Punisher<br>
-                <input type="radio" name="choice" value="wrong">Deadpool<br>
-                <input type="radio" name="choice" value="wrong">Loki
-             </form>
-             <br>
+            <input type="radio" name="choice" value="correct">Iceman<br>
+            <input type="radio" name="choice" value="wrong">The Punisher<br>
+            <input type="radio" name="choice" value="wrong">Deadpool<br>
+            <input type="radio" name="choice" value="wrong">Loki
+        </form>
+        <br>
         <p>Who created Ultron?</p>
         <form>
-                <input type="radio" name="choice" value="wrong">Tony Stark<br>
-                <input type="radio" name="choice" value="wrong">Reed Richards<br>
-                <input type="radio" name="choice" value="wrong">Peter Parker<br>
-                <input type="radio" name="choice" value="correct">Hank Pym
-             </form>
-             <br>
+            <input type="radio" name="choice" value="wrong">Tony Stark<br>
+            <input type="radio" name="choice" value="wrong">Reed Richards<br>
+            <input type="radio" name="choice" value="wrong">Peter Parker<br>
+            <input type="radio" name="choice" value="correct">Hank Pym
+        </form>
+        <br>
         <p>What is DareDevil's/Matt Murdock's occupation?</p>
         <form>
-                <input type="radio" name="choice" value="wrong">Detective<br>
-                <input type="radio" name="choice" value="correct">Lawyer<br>
-                <input type="radio" name="choice" value="wrong">Boxer<br>
-                <input type="radio" name="choice" value="wrong">Judge
-             </form>
-             <br>
+            <input type="radio" name="choice" value="wrong">Detective<br>
+            <input type="radio" name="choice" value="correct">Lawyer<br>
+            <input type="radio" name="choice" value="wrong">Boxer<br>
+            <input type="radio" name="choice" value="wrong">Judge
+        </form>
+        <br>
         <p>Who founded the X-men?</p>
         <form>
-                <input type="radio" name="choice" value="wrong">Eric Lehnsherr<br>
-                <input type="radio" name="choice" value="wrong">James Howlett<br>
-                <input type="radio" name="choice" value="wrong">Bruce Banner<br>
-                <input type="radio" name="choice" value="correct">Charles Xavier
-             </form>
-             <br>
+            <input type="radio" name="choice" value="wrong">Eric Lehnsherr<br>
+            <input type="radio" name="choice" value="wrong">James Howlett<br>
+            <input type="radio" name="choice" value="wrong">Bruce Banner<br>
+            <input type="radio" name="choice" value="correct">Charles Xavier
+        </form>
+        <br>
         <p>Who was the first Super Solider?</p>
         <form>
-                <input type="radio" name="choice" value="wrong">Red Skull<br>
-                <input type="radio" name="choice" value="wrong">Natasha Romanova<br>
-                <input type="radio" name="choice" value="wrong">Bucky Barnes<br>
-                <input type="radio" name="choice" value="correct">Steve Rogers
-             </form>
-             <br>
+            <input type="radio" name="choice" value="wrong">Red Skull<br>
+            <input type="radio" name="choice" value="wrong">Natasha Romanova<br>
+            <input type="radio" name="choice" value="wrong">Bucky Barnes<br>
+            <input type="radio" name="choice" value="correct">Steve Rogers
+        </form>
+        <br>
         <p>Who holds the power of the Iron Fist?</p>
         <form>
-                <input type="radio" name="choice" value="correct">Danny Rand<br>
-                <input type="radio" name="choice" value="wrong">Iron Man<br>
-                <input type="radio" name="choice" value="wrong">Iron Spider<br>
-                <input type="radio" name="choice" value="wrong">Shou-Lao
-             </form>
-             <br>
+            <input type="radio" name="choice" value="correct">Danny Rand<br>
+            <input type="radio" name="choice" value="wrong">Iron Man<br>
+            <input type="radio" name="choice" value="wrong">Iron Spider<br>
+            <input type="radio" name="choice" value="wrong">Shou-Lao
+        </form>
+        <br>
         <p>Who is the leader of the Fantastic 4?</p>
         <form>
-                <input type="radio" name="choice" value="wrong">Johnny Storm<br>
-                <input type="radio" name="choice" value="wrong">Dr. Doom<br>
-                <input type="radio" name="choice" value="correct">Mr. Fantastic<br>
-                <input type="radio" name="choice" value="wrong">Johnny Blaze
-             </form>
-             <br>
+            <input type="radio" name="choice" value="wrong">Johnny Storm<br>
+            <input type="radio" name="choice" value="wrong">Dr. Doom<br>
+            <input type="radio" name="choice" value="correct">Mr. Fantastic<br>
+            <input type="radio" name="choice" value="wrong">Johnny Blaze
+        </form>
+        <br>
     </div>
-    
+
+  
+    <div>
+        <img src="" alt="">
+    </div>
+    <div>
+        <img src="" alt="">
+    </div>
+    <div>
+        <img src="" alt="">
+    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="assets/javascript/app.js"></script>
+
 </html>
