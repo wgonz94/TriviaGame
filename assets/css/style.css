@@ -13,11 +13,19 @@ h1 {
     border-radius: 12px;
     width: 50%;
     height: 100%;
-    margin-left: 25%; 
+    margin-left: 10%; 
+    position: relative;
     float: left;
 
 }
-#sideOne{
-    display: inline;
+.sideOnemaster{
+    float: left;
+}
+.sideOne{
+    margin-bottom: 15px;
     
+}
+img {
+    border: 3px solid #ed1d24;
+    border-radius: 12px;
 }
