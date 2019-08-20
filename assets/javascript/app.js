@@ -1,20 +1,33 @@
-$(document).ready(function () {
+var seconds = 30;
+
+var intervalId;
+
+$("#start").on("click", runTime);
+
+$("#stop").on("click", stopTime);
+
+function runTime() {
+    clearInterval(intervalId)
+    intervalId = setInterval(decrement, 1000);
+    $("#startPage").hide();
+}
+
+function decrement() {
+    seconds--;
+
+    $("#time-slot").html("<h3> Time remaining: " + seconds + "  seconds</h3>");
+}
+
+ 
 
 
-    $("#startBtn").on("click", gameTimer.startTimer);
 
-});
 
-var gameTimer = {
-    
-   remainingTime = 30,
-   startTimer = function(){
-        $("#time-slot").text(gameTimer.remainingTime);
-        setInterval(gameState.countdown, 1000);
-        $("#startPage").hide();
-        // trivia.displayQuestions();
-    }
-};
+//         // trivia.displayQuestions();
+//     },
+
+
+// };
 
 var triviaVault = [
     {
