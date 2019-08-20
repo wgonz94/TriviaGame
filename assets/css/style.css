@@ -14,11 +14,10 @@ h1 {
     width: 50%;
     height: 1370px;
     margin-left: 10%; 
-    position: relative;
     float: left;
 
 }
-.runPage{
+.hidden{
     display: none;
 }
 .button {
