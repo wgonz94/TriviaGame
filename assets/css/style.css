@@ -16,8 +16,10 @@ h1 {
     margin-left: 10%; 
     position: relative;
     float: left;
-    
 
+}
+.runPage{
+    display: none;
 }
 .sideOnemaster{
     float: left;
