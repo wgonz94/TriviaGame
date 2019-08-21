@@ -1,15 +1,18 @@
 var seconds = 30;
-
 var intervalId;
+var correct = 0;
+var incorrect = 0;
+var unanswered = 0;
 
 $("#start").on("click", runTime);
 
-$("#stop").on("click", stopTime);
+// $("#stop").on("click", stopTime);
 
 function runTime() {
     clearInterval(intervalId)
     intervalId = setInterval(decrement, 1000);
     $("#startPage").hide();
+    questionDisplay();
 }
 
 function decrement() {
@@ -17,17 +20,6 @@ function decrement() {
 
     $("#time-slot").html("<h3> Time remaining: " + seconds + "  seconds</h3>");
 }
-
- 
-
-
-
-
-//         // trivia.displayQuestions();
-//     },
-
-
-// };
 
 var triviaVault = [
     {
@@ -79,3 +71,22 @@ var triviaVault = [
     }
 
 ]
+function questionDisplay(){
+
+   
+    
+    var questionContainer = $("#question-form");
+    $("#question-form").prepend("<h4>Answer questions before time runs out!</h4>")
+   
+    //Question #1
+    $("#question-form").append("<div id= 'question-form'>#1. " +triviaVault[0].question + "</div>")
+
+    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[0] + "</div>")
+    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[1] + "</div>")
+    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[2] + "</div>")
+    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[3] + "</div>")
+}
+
+
+
+ 
