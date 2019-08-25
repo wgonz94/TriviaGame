@@ -1,14 +1,22 @@
+//hides the submit button
 $("#done").hide()
 
-var seconds = 30;
+//variables to start
+var seconds = 25;
 var intervalId;
-var correct = 0;
-var incorrect = 0;
-var unanswered = 0;
 
+// var correct = 0;
+// var incorrect = 0;
+// var unanswered = 0;
+
+// event-listener for start button; also runs "runTime" function
 $("#start").on("click", runTime);
 
+// event-listener for done button; also runs "stopTime" function
 $("#done").on("click", stopTime);
+
+//when start clicked, this function runs and provides decrement of time, hides start button, 
+//displays questions (question function), and shows "done" button
 
 function runTime() {
     clearInterval(intervalId)
@@ -17,15 +25,29 @@ function runTime() {
     questionDisplay();
     $("#done").show();
 }
+
+// when done is clicked, this function runs; hides done button, slot for time, question form, and
+//shows hidden div for final tally calculations
 function stopTime() {
 
     clearInterval(intervalId);
-  }
+    $("#done").hide();
+    $("#time-slot").hide()
+    $("#question-form").hide();
+    $(".hidden").show();
+    tallyAnswers();
+}
 
 function decrement() {
     seconds--;
 
+
     $("#time-slot").html("<h3> Time remaining: " + seconds + "  seconds</h3>");
+
+    if (seconds === 0) {
+        stopTime()
+
+    }
 }
 
 //Question bank = 8 total questions
@@ -79,110 +101,79 @@ var triviaVault = [
     }
 
 ]
-function questionDisplay(){
 
-   
-    
+//uses array and loop for question display
+// * RADIO FUNCTION DOES NOT WORK! NEED TO FIX!
+function questionDisplay() {
+
+
+
     var questionContainer = $("#question-form");
-    $("#question-form").prepend("<h4>Answer questions before time runs out!</h4>")
+
+    for (var i = 0; i < triviaVault.length; i++){
+        // each answer form 
+        var questionForm = $("<div id='question-form'>")
+        var question = $("<h3>" + triviaVault[i].question +"</h3>")
+        questionForm.append(question)
+
+        for ( var j = 0; j < triviaVault[i].answers.length; j++){
+
+            
+
+            // create radio question 
+            var radio = $("<input type='radio'>" + triviaVault[i].answers[j] + "</input>" )
+            
+            // change with the radio attributes 
+            radio.attr('name', 'answers')
+            radio.attr('value', triviaVault[i].answers[j])
+            radio.text(triviaVault[i].answers[j])
+
+            // put the radio button into the question form 
+            questionForm.append(radio)
+        
+            console.log(questionForm)
+
+        }
+
+
+        $("#question-form").append(questionForm)
+        questionContainer.append('<br>')
+    }
    
-    //Question #1
-    $("#question-form").append("<div id= 'question-form'>#1. " +triviaVault[0].question + "</div>")
-    //Choices #1
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[0].answers[3] + "</div>")
+};
 
-    //line-break
-    questionContainer.append("<br>")
+// variables for question tally
+ var correctAnswer= triviaVault[i].correct;
+    var userAnswer= $(this).val()
+    var correct = 0;
+    var incorrect = 0;
+    var unanswered = 0;
 
-    //Question 2
-    questionContainer.append("<div id= 'question-form'>#2. " +triviaVault[1].question + "</div>")
-
-    //Choices 2
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[1].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[1].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[1].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[1].answers[3] + "</div>")
-
-    //line-break
-    questionContainer.append("<br>")
-
-    //Question 3
-    questionContainer.append("<div id= 'question-form'>#3. " +triviaVault[2].question + "</div>")
-    //Choices 3
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[2].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[2].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[2].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[2].answers[3] + "</div>")
-
-    //line-break
-    questionContainer.append("<br>")
-
-    //Question 4
-    questionContainer.append("<div id= 'question-form'>#4. " +triviaVault[3].question + "</div>")
-    //Choices 4
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[3].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[3].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[3].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[3].answers[3] + "</div>")
-
-    //line-break
-    questionContainer.append("<br>")
-
-    //Question 5
-    questionContainer.append("<div id= 'question-form'>#5. " +triviaVault[4].question + "</div>")
-    //Choices 5
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[4].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[4].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[4].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[4].answers[3] + "</div>")
-
-    //line-break
-    questionContainer.append("<br>")
-
-    //Question 6
-    questionContainer.append("<div id= 'question-form'>#6. " +triviaVault[5].question + "</div>")
-    //Choices 6
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[5].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[5].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[5].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[5].answers[3] + "</div>")
-
-    //line-break
-    questionContainer.append("<br>")
-
-    //Question 7
-    questionContainer.append("<div id= 'question-form'>#7. " +triviaVault[6].question + "</div>")
-    //Choices 7
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[6].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[6].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[6].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[6].answers[3] + "</div>")
-
-    //line-break
-    questionContainer.append("<br>")
-
-    //Question 8
-    questionContainer.append("<div id= 'question-form'>#8. " +triviaVault[7].question + "</div>")
-    //Choices 8
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[7].answers[0] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[7].answers[1] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[7].answers[2] + "</div>")
-    $("#question-form").append("<div id= 'question-form'><input type='radio' value= 'choice1'>" + triviaVault[7].answers[3] + "</div>")
+// adds up all the correct, incorrect, and unanswered fields
+// DOES NOT ADD UP CORRECTLY! NEED TO FIX!
+function tallyAnswers() {
+   
+    for (var i = 0; i < triviaVault.length; i++) {
 
 
+        correctAnswer = triviaVault[i].correct;
 
+        if (userAnswer === correctAnswer) {
+            correct++;
+        } else if (userAnswer !== correctAnswer) {
+            incorrect++;
+        } else {
+            unanswered++;
+        }
+    }
 
-
-
-
-
-
-
+    // Shows the Final Message with Score
+    //
+    $("#endMessage").show()
+    $("#correct").text("Correct: " + correct)
+    $("#incorrect").text("Incorrect: " + incorrect)
+    $("#unanswered").text("unanswered: " + correct)
 }
 
 
 
- 
