@@ -2,7 +2,7 @@
 $("#done").hide()
 
 //variables to start
-var seconds = 25;
+var seconds = 250;
 var intervalId;
 
 // var correct = 0;
@@ -112,9 +112,9 @@ function questionDisplay() {
 
     for (var i = 0; i < triviaVault.length; i++){
         // each answer form 
-        var questionForm = $("<div id='question-form'>")
+        var questionForm = $("<form id='questionNumber'>")
         var question = $("<h3>" + triviaVault[i].question +"</h3>")
-        questionForm.append(question)
+        questionForm.html(question)
 
         for ( var j = 0; j < triviaVault[i].answers.length; j++){
 
@@ -126,7 +126,7 @@ function questionDisplay() {
             // change with the radio attributes 
             radio.attr('name', 'answers')
             radio.attr('value', triviaVault[i].answers[j])
-            radio.text(triviaVault[i].answers[j])
+            // radio.text(triviaVault[i].answers[j])
 
             // put the radio button into the question form 
             questionForm.append(radio)
